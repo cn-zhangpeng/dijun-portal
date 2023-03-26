@@ -6,7 +6,7 @@
           <span class="name">待处理</span>
           <button>...</button>
         </div>
-        <button class="add">+</button>
+        <AddTaskCompo />
         <ul class="task">
           <li class="task-item">
             <span class="name">【信令后台】框架搭建</span>
@@ -22,7 +22,7 @@
           <span class="name">待处理</span>
           <button>...</button>
         </div>
-        <button class="add">+</button>
+        <AddTaskCompo />
         <ul class="task">
           <li class="task-item">
             <span class="name">【信令后台】框架搭建</span>
@@ -85,6 +85,10 @@
   </div>
 </template>
 
+<script setup>
+import AddTaskCompo from './components/AddTaskCompo.vue'
+</script>
+
 <style lang="scss">
 #project-kanban {
   min-height: 300px;
@@ -107,14 +111,6 @@
         line-height: 40px;
       }
     }
-    .add {
-      width: 100%;
-      height: 30px;
-      background: #FFF;
-      border-radius: 4px;
-      box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
-      margin-bottom: 8px;
-    }
   }
 }
 .task {
@@ -125,6 +121,7 @@
     border-radius: 4px;
     box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
     margin-bottom: 8px;
+    cursor: pointer;
     .name {
       line-height: 48px;
     }
