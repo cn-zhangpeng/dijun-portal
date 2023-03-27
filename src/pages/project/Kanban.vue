@@ -91,12 +91,11 @@ import AddTaskCompo from './components/AddTaskCompo.vue'
 
 <style lang="scss">
 #project-kanban {
-  min-height: 300px;
-  padding: 20px;
+  padding: 20px 20px 0;
   background: #F7F7F7;
 }
 .kanban {
-  display: flex;
+  display: inline-flex;
   align-items: flex-start;
   background: #F7F7F7;
   .kanban-item {
