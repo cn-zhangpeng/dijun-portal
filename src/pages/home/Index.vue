@@ -1,14 +1,8 @@
 <template>
   <div class="home">
-    <el-row>
-      <el-col :span="24">
-        <span class="top-title">帝俊</span>
-      </el-col>
+      <span class="top-title">帝俊</span>
       <el-divider />
-      <el-col :span="24">
-        <router-link to="/project">项目管理</router-link>
-      </el-col>
-    </el-row>
+      <router-link to="/project">项目管理</router-link>
   </div>
 </template>
 

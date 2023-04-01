@@ -1,87 +1,107 @@
 <template>
   <div id="project-kanban">
-    <ul class="kanban">
-      <li class="kanban-item">
+    <div class="kanban-item">
+      <div class="header">
+        <span class="name">待处理</span>
+        <button>...</button>
+      </div>
+      <AddTaskCompo />
+      <div class="task">
+        <div class="task-item">
+          <span class="name">【信令后台】框架搭建</span>
+          <img alt="头像" src="https://tcs.teambition.net/thumbnail/111t8f70348037f544d170620cc0b9202e9c/w/200/h/200">
+        </div>
+        <div class="task-item">
+          <span class="name">【信令后台】业务相关表结构设计</span>
+            <img alt="头像" src="https://tcs.teambition.net/thumbnail/111t8f70348037f544d170620cc0b9202e9c/w/200/h/200">
+        </div>
+      </div>
+    </div>
+    <div class="kanban-item">
         <div class="header">
-          <span class="name">待处理</span>
-          <button>...</button>
+            <span class="name">待处理</span>
+            <button>...</button>
         </div>
         <AddTaskCompo />
-        <ul class="task">
-          <li class="task-item">
-            <span class="name">【信令后台】框架搭建</span>
-<!--            <span><img alt="头像" src="https://tcs.teambition.net/thumbnail/111t8f70348037f544d170620cc0b9202e9c/w/200/h/200"></span>-->
-          </li>
-          <li class="task-item">
-            <span class="name">【信令后台】业务相关表结构设计</span>
-          </li>
-        </ul>
-      </li>
-      <li class="kanban-item">
+        <div class="task">
+            <div class="task-item">
+                <span class="name">【信令后台】框架搭建</span>
+                <img alt="头像" src="https://tcs.teambition.net/thumbnail/111t8f70348037f544d170620cc0b9202e9c/w/200/h/200">
+            </div>
+            <div class="task-item">
+                <span class="name">【信令后台】业务相关表结构设计</span>
+                <img alt="头像" src="https://tcs.teambition.net/thumbnail/111t8f70348037f544d170620cc0b9202e9c/w/200/h/200">
+            </div>
+        </div>
+    </div>
+    <div class="kanban-item">
         <div class="header">
-          <span class="name">待处理</span>
-          <button>...</button>
+            <span class="name">待处理</span>
+            <button>...</button>
         </div>
         <AddTaskCompo />
-        <ul class="task">
-          <li class="task-item">
-            <span class="name">【信令后台】框架搭建</span>
-            <!--            <span><img alt="头像" src="https://tcs.teambition.net/thumbnail/111t8f70348037f544d170620cc0b9202e9c/w/200/h/200"></span>-->
-          </li>
-          <li class="task-item">
-            <span class="name">【信令后台】业务相关表结构设计</span>
-          </li>
-        </ul>
-      </li>
-      <li class="kanban-item">
-        <div class="header">
-          <span class="name">待处理</span>
-          <button>...</button>
+        <div class="task">
+            <div class="task-item">
+                <span class="name">【信令后台】框架搭建</span>
+                <img alt="头像" src="https://tcs.teambition.net/thumbnail/111t8f70348037f544d170620cc0b9202e9c/w/200/h/200">
+            </div>
+            <div class="task-item">
+                <span class="name">【信令后台】业务相关表结构设计</span>
+                <img alt="头像" src="https://tcs.teambition.net/thumbnail/111t8f70348037f544d170620cc0b9202e9c/w/200/h/200">
+            </div>
         </div>
-        <button class="add">+</button>
-        <ul class="task">
-          <li class="task-item">
-            <span class="name">【信令后台】框架搭建</span>
-            <!--            <span><img alt="头像" src="https://tcs.teambition.net/thumbnail/111t8f70348037f544d170620cc0b9202e9c/w/200/h/200"></span>-->
-          </li>
-          <li class="task-item">
-            <span class="name">【信令后台】业务相关表结构设计</span>
-          </li>
-        </ul>
-      </li>
-      <li class="kanban-item">
+    </div>
+    <div class="kanban-item">
         <div class="header">
-          <span class="name">待处理</span>
-          <button>...</button>
+            <span class="name">待处理</span>
+            <button>...</button>
         </div>
-        <button class="add">+</button>
-        <ul class="task">
-          <li class="task-item">
-            <span class="name">【信令后台】框架搭建</span>
-            <!--            <span><img alt="头像" src="https://tcs.teambition.net/thumbnail/111t8f70348037f544d170620cc0b9202e9c/w/200/h/200"></span>-->
-          </li>
-          <li class="task-item">
-            <span class="name">【信令后台】业务相关表结构设计</span>
-          </li>
-        </ul>
-      </li>
-      <li class="kanban-item">
+        <AddTaskCompo />
+        <div class="task">
+            <div class="task-item">
+                <span class="name">【信令后台】框架搭建</span>
+                <img alt="头像" src="https://tcs.teambition.net/thumbnail/111t8f70348037f544d170620cc0b9202e9c/w/200/h/200">
+            </div>
+            <div class="task-item">
+                <span class="name">【信令后台】业务相关表结构设计</span>
+                <img alt="头像" src="https://tcs.teambition.net/thumbnail/111t8f70348037f544d170620cc0b9202e9c/w/200/h/200">
+            </div>
+        </div>
+    </div>
+    <div class="kanban-item">
         <div class="header">
-          <span class="name">待处理</span>
-          <button>...</button>
+            <span class="name">待处理</span>
+            <button>...</button>
         </div>
-        <button class="add">+</button>
-        <ul class="task">
-          <li class="task-item">
-            <span class="name">【信令后台】框架搭建</span>
-            <!--            <span><img alt="头像" src="https://tcs.teambition.net/thumbnail/111t8f70348037f544d170620cc0b9202e9c/w/200/h/200"></span>-->
-          </li>
-          <li class="task-item">
-            <span class="name">【信令后台】业务相关表结构设计</span>
-          </li>
-        </ul>
-      </li>
-    </ul>
+        <AddTaskCompo />
+        <div class="task">
+            <div class="task-item">
+                <span class="name">【信令后台】框架搭建</span>
+                <img alt="头像" src="https://tcs.teambition.net/thumbnail/111t8f70348037f544d170620cc0b9202e9c/w/200/h/200">
+            </div>
+            <div class="task-item">
+                <span class="name">【信令后台】业务相关表结构设计</span>
+                <img alt="头像" src="https://tcs.teambition.net/thumbnail/111t8f70348037f544d170620cc0b9202e9c/w/200/h/200">
+            </div>
+        </div>
+    </div>
+    <div class="kanban-item">
+        <div class="header">
+            <span class="name">待处理</span>
+            <button>...</button>
+        </div>
+        <AddTaskCompo />
+        <div class="task">
+            <div class="task-item">
+                <span class="name">【信令后台】框架搭建</span>
+                <img alt="头像" src="https://tcs.teambition.net/thumbnail/111t8f70348037f544d170620cc0b9202e9c/w/200/h/200">
+            </div>
+            <div class="task-item">
+                <span class="name">【信令后台】业务相关表结构设计</span>
+                <img alt="头像" src="https://tcs.teambition.net/thumbnail/111t8f70348037f544d170620cc0b9202e9c/w/200/h/200">
+            </div>
+        </div>
+    </div>
   </div>
 </template>
 
@@ -91,44 +111,43 @@ import AddTaskCompo from './components/AddTaskCompo.vue'
 
 <style lang="scss">
 #project-kanban {
-  padding: 20px 20px 0;
+  min-height: 100vh;
+  padding: 20px;
   background: #F7F7F7;
-}
-.kanban {
   display: inline-flex;
-  align-items: flex-start;
-  background: #F7F7F7;
-  .kanban-item {
-    width: 300px;
-    min-height: 100px;
-    padding: 12px;
-    flex-shrink: 0;
-    .header {
-      height: 40px;
-      .name {
-        font-weight: bold;
-        line-height: 40px;
-      }
-    }
+}
+.kanban-item {
+  width: 300px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 12px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  .header {
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 .task {
+  display: flex;
+  flex-direction: column;
   .task-item {
-    width: 100%;
     height: 48px;
     background: #FFF;
     border-radius: 4px;
     box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
+    padding: 0 16px;
     margin-bottom: 8px;
     cursor: pointer;
-    .name {
-      line-height: 48px;
-    }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     img {
       width: 24px;
-      height: 24px;
       border-radius: 50%;
-      vertical-align: middle;
     }
   }
 }

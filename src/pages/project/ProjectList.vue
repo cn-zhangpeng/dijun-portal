@@ -1,23 +1,41 @@
 <template>
   <div id="project-list">
-    <ul>
-      <li class="project-item" @click="toProjectKanban()">
-        <div class="icon"></div>
-        <div class="name">自研会议平台</div>
-      </li>
-      <li class="project-item">
-        <div class="icon"></div>
-        <div class="name">前台会议平台</div>
-      </li>
-      <li class="project-item">
-        <div class="icon"></div>
-        <div class="name">业务中心</div>
-      </li>
-      <li class="project-item">
+    <div class="project-item" @click="toProjectKanban()">
+      <div class="icon"></div>
+      <div class="name">自研会议平台</div>
+    </div>
+    <div class="project-item">
+      <div class="icon"></div>
+      <div class="name">前台会议平台</div>
+    </div>
+    <div class="project-item">
+      <div class="icon"></div>
+      <div class="name">业务中心</div>
+    </div>
+    <div class="project-item">
+      <div class="icon"></div>
+      <div class="name">运管平台</div>
+    </div>
+    <div class="project-item">
         <div class="icon"></div>
         <div class="name">运管平台</div>
-      </li>
-    </ul>
+    </div>
+    <div class="project-item">
+        <div class="icon"></div>
+        <div class="name">运管平台</div>
+    </div>
+    <div class="project-item">
+        <div class="icon"></div>
+        <div class="name">运管平台</div>
+    </div>
+    <div class="project-item">
+        <div class="icon"></div>
+        <div class="name">运管平台</div>
+    </div>
+    <div class="project-item">
+        <div class="icon"></div>
+        <div class="name">运管平台</div>
+    </div>
   </div>
 </template>
 
@@ -31,19 +49,21 @@ function toProjectKanban() {
 
 <style lang="scss">
 #project-list {
-  min-height: 300px;
+  display: flex;
+  flex-wrap: wrap;
   padding: 50px;
-  border: 1px solid red;
 }
 .project-item {
-  width: 200px;
-  height: 125px;
+  width: 180px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
   border-radius: 12px;
   margin-right: 16px;
-  float: left;
+  margin-top: 16px;
   background-image: url("https://tcs.teambition.net/thumbnail/111u93bfbb33e78185286352914f734004ae/w/200/h/100");
-  overflow: hidden;
   box-shadow: 0 1px 5px rgb(38 38 38 / 10%);
+  overflow: hidden;
   &:hover {
     box-shadow: 0 1px 5px rgb(38 38 38 / 50%);
     cursor: pointer;
@@ -55,14 +75,15 @@ function toProjectKanban() {
   }
 
   .icon {
-    height: 80px;
+    flex: 1;
   }
   .name {
     background: #FFF;
     height: 25px;
-    line-height: 25px;
+    display: flex;
+    align-items: center;
     font-weight: bold;
-    padding: 10px 12px;
+    padding: 5px 10px;
   }
 }
 </style>

@@ -27,13 +27,18 @@
   </el-dialog>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import {ref} from "vue";
 
-const dialogVisible = ref(false)
-const taskInfo = ref({
-  name: '',
-  executorId: ''
+const dialogVisible = ref<boolean>(false)
+
+interface TaskInfo {
+    name: string,
+    executorId: string
+}
+const taskInfo = ref<TaskInfo>({
+  name: '测试任务',
+  executorId: '1'
 })
 
 function addTaskVue() {
@@ -43,7 +48,6 @@ function addTaskVue() {
 
 <style lang="scss">
 .add {
-  width: 100%;
   height: 30px;
   background: #FFF;
   border-radius: 4px;
