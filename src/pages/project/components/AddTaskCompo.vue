@@ -1,20 +1,24 @@
 <template>
   <button class="add" @click="addTaskVue()">+</button>
 
+  <div>
+
+  </div>
+
   <el-dialog
-      v-model="dialogVisible"
-      title="添加任务"
-      width="30%"
+          v-model="dialogVisible"
+          title="添加任务"
+          width="30%"
   >
     <el-form label-width="80px">
       <el-form-item label="任务名称">
-        <el-input type="textarea" v-model="taskInfo.name" />
+        <el-input type="textarea" v-model="taskInfo.name"/>
       </el-form-item>
       <el-form-item label="认领人">
         <el-select v-model="taskInfo.executorId">
-          <el-option label="张三" value="1" />
-          <el-option label="李四" value="2" />
-          <el-option label="王五" value="3" />
+          <el-option label="张三" value="1"/>
+          <el-option label="李四" value="2"/>
+          <el-option label="王五" value="3"/>
         </el-select>
       </el-form-item>
     </el-form>
@@ -36,13 +40,14 @@ interface TaskInfo {
     name: string,
     executorId: string
 }
+
 const taskInfo = ref<TaskInfo>({
-  name: '测试任务',
-  executorId: '1'
+    name: '测试任务',
+    executorId: '1'
 })
 
 function addTaskVue() {
-  dialogVisible.value = true
+    dialogVisible.value = true
 }
 </script>
 
@@ -51,7 +56,7 @@ function addTaskVue() {
   height: 30px;
   background: #FFF;
   border-radius: 4px;
-  box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
   margin-bottom: 8px;
   cursor: pointer;
   font-size: 20px;
