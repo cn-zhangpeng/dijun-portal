@@ -94,3 +94,7 @@ table {
 .clear {
   clear: both;
 }
+
+* {
+  box-sizing: border-box;
+}
