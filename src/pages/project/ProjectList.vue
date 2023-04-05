@@ -8,34 +8,6 @@
       <div class="icon"></div>
       <div class="name">前台会议平台</div>
     </div>
-    <div class="project-item">
-      <div class="icon"></div>
-      <div class="name">业务中心</div>
-    </div>
-    <div class="project-item">
-      <div class="icon"></div>
-      <div class="name">运管平台</div>
-    </div>
-    <div class="project-item">
-      <div class="icon"></div>
-      <div class="name">运管平台</div>
-    </div>
-    <div class="project-item">
-      <div class="icon"></div>
-      <div class="name">运管平台</div>
-    </div>
-    <div class="project-item">
-      <div class="icon"></div>
-      <div class="name">运管平台</div>
-    </div>
-    <div class="project-item">
-      <div class="icon"></div>
-      <div class="name">运管平台</div>
-    </div>
-    <div class="project-item">
-      <div class="icon"></div>
-      <div class="name">运管平台</div>
-    </div>
   </div>
 </template>
 
