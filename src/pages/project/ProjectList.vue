@@ -1,22 +1,40 @@
 <template>
   <div id="project-list">
-    <div class="project-item" @click="toProjectKanban()">
+    <div class="project-item" v-for="p in projectList" @click="toProjectKanban()">
       <div class="icon"></div>
-      <div class="name">自研会议平台</div>
-    </div>
-    <div class="project-item">
-      <div class="icon"></div>
-      <div class="name">前台会议平台</div>
+      <div class="name">{{ p.name }}</div>
     </div>
   </div>
 </template>
 
-<script setup>
-import router from '/src/router/index'
+<script setup lang="ts">
+import router from '@/router/index'
+import axios from '../../utils/http-utils'
+import {reactive, onMounted} from "vue"
+
+interface Project {
+    icon?: string,
+    name: string
+}
+
+const projectList = reactive<Project[]>([
+    {name: '前台项目'},
+    {name: '自研会议平台'},
+])
+
+function loadProjectList() {
+    axios.get('/projects').then(res => {
+        console.log(res)
+    })
+}
 
 function toProjectKanban() {
     router.push({name: 'ProjectKanban', query: {id: '1'}})
 }
+
+onMounted(() => {
+    loadProjectList()
+})
 </script>
 
 <style lang="scss">
