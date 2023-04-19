@@ -1,103 +1,14 @@
 <template>
   <div id="project-kanban">
-    <div class="kanban-item">
+    <div class="kanban-item" v-for="k in kanbanList">
       <div class="header">
-        <span class="name">待处理</span>
+        <span class="name">{{ k.name }}</span>
         <button>...</button>
       </div>
       <AddTaskCompo/>
       <div class="task">
-        <div class="task-item" @click="viewTaskDetail()">
-          <span class="name">【信令后台】框架搭建</span>
-          <img alt="头像" src="https://tcs.teambition.net/thumbnail/111t8f70348037f544d170620cc0b9202e9c/w/200/h/200">
-        </div>
-        <div class="task-item">
-          <span class="name">【信令后台】业务相关表结构设计</span>
-          <img alt="头像" src="https://tcs.teambition.net/thumbnail/111t8f70348037f544d170620cc0b9202e9c/w/200/h/200">
-        </div>
-      </div>
-    </div>
-    <div class="kanban-item">
-      <div class="header">
-        <span class="name">待处理</span>
-        <button>...</button>
-      </div>
-      <AddTaskCompo/>
-      <div class="task">
-        <div class="task-item">
-          <span class="name">【信令后台】框架搭建</span>
-          <img alt="头像" src="https://tcs.teambition.net/thumbnail/111t8f70348037f544d170620cc0b9202e9c/w/200/h/200">
-        </div>
-        <div class="task-item">
-          <span class="name">【信令后台】业务相关表结构设计</span>
-          <img alt="头像" src="https://tcs.teambition.net/thumbnail/111t8f70348037f544d170620cc0b9202e9c/w/200/h/200">
-        </div>
-      </div>
-    </div>
-    <div class="kanban-item">
-      <div class="header">
-        <span class="name">待处理</span>
-        <button>...</button>
-      </div>
-      <AddTaskCompo/>
-      <div class="task">
-        <div class="task-item">
-          <span class="name">【信令后台】框架搭建</span>
-          <img alt="头像" src="https://tcs.teambition.net/thumbnail/111t8f70348037f544d170620cc0b9202e9c/w/200/h/200">
-        </div>
-        <div class="task-item">
-          <span class="name">【信令后台】业务相关表结构设计</span>
-          <img alt="头像" src="https://tcs.teambition.net/thumbnail/111t8f70348037f544d170620cc0b9202e9c/w/200/h/200">
-        </div>
-      </div>
-    </div>
-    <div class="kanban-item">
-      <div class="header">
-        <span class="name">待处理</span>
-        <button>...</button>
-      </div>
-      <AddTaskCompo/>
-      <div class="task">
-        <div class="task-item">
-          <span class="name">【信令后台】框架搭建</span>
-          <img alt="头像" src="https://tcs.teambition.net/thumbnail/111t8f70348037f544d170620cc0b9202e9c/w/200/h/200">
-        </div>
-        <div class="task-item">
-          <span class="name">【信令后台】业务相关表结构设计</span>
-          <img alt="头像" src="https://tcs.teambition.net/thumbnail/111t8f70348037f544d170620cc0b9202e9c/w/200/h/200">
-        </div>
-      </div>
-    </div>
-    <div class="kanban-item">
-      <div class="header">
-        <span class="name">待处理</span>
-        <button>...</button>
-      </div>
-      <AddTaskCompo/>
-      <div class="task">
-        <div class="task-item">
-          <span class="name">【信令后台】框架搭建</span>
-          <img alt="头像" src="https://tcs.teambition.net/thumbnail/111t8f70348037f544d170620cc0b9202e9c/w/200/h/200">
-        </div>
-        <div class="task-item">
-          <span class="name">【信令后台】业务相关表结构设计</span>
-          <img alt="头像" src="https://tcs.teambition.net/thumbnail/111t8f70348037f544d170620cc0b9202e9c/w/200/h/200">
-        </div>
-      </div>
-    </div>
-    <div class="kanban-item">
-      <div class="header">
-        <span class="name">待处理</span>
-        <button>...</button>
-      </div>
-      <AddTaskCompo/>
-      <div class="task">
-        <div class="task-item">
-          <span class="name">【信令后台】框架搭建</span>
-          <img alt="头像" src="https://tcs.teambition.net/thumbnail/111t8f70348037f544d170620cc0b9202e9c/w/200/h/200">
-        </div>
-        <div class="task-item">
-          <span class="name">【信令后台】业务相关表结构设计</span>
+        <div class="task-item" v-for="t in k.taskList" @click="viewTaskDetail()">
+          <span class="name">{{ t.name }}</span>
           <img alt="头像" src="https://tcs.teambition.net/thumbnail/111t8f70348037f544d170620cc0b9202e9c/w/200/h/200">
         </div>
       </div>
@@ -185,9 +96,11 @@
 </template>
 
 <script setup lang="ts">
-import {ref} from "vue"
+import {ref, onMounted} from "vue"
+import {useRoute} from 'vue-router'
 import 'dayjs/locale/zh-cn'
 import AddTaskCompo from './components/AddTaskCompo.vue'
+import axios from "@/utils/http-utils";
 
 const taskDialogVisible = ref<boolean>(false)
 
@@ -206,7 +119,7 @@ enum TaskPriority {
     URGENT,
     VERY_URGENT
 }
-const taskDetail = ref<TaskDetail>({
+let taskDetail = ref<TaskDetail>({
     name: '测试任务',
     executorId: '1',
     status: true,
@@ -216,9 +129,29 @@ const taskDetail = ref<TaskDetail>({
     description: ''
 })
 
+interface Kanban {
+    id: number,
+    name: string,
+    taskList: TaskDetail[]
+}
+let kanbanList = ref<Kanban[]>([])
+
 function viewTaskDetail() {
   taskDialogVisible.value = true
 }
+
+let projectId = useRoute().params.id
+onMounted(() => {
+    axios.get(`/projects/${projectId}/kanbans`).then(res => {
+        kanbanList.value = res.data
+
+        kanbanList.value.forEach(k => {
+            axios.get(`/kanbans/${k.id}/tasks`, {params: {page: 1, pageSize: 10}}).then(res => {
+                k.taskList = res.data.data
+            })
+        })
+    })
+})
 </script>
 
 <style lang="scss">
@@ -226,7 +159,7 @@ function viewTaskDetail() {
   min-height: 100vh;
   padding: 20px;
   background: #F7F7F7;
-  display: inline-flex;
+  display: flex;
 }
 
 .kanban-item {

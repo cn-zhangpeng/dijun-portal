@@ -27,7 +27,6 @@ function loadProjectList() {
 }
 
 function toProjectKanban(id: number) {
-    console.log(id)
     router.push({path: `/project/${id}/kanban`})
 }
 
