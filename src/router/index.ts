@@ -16,7 +16,7 @@ const routes: Array<RouteRecordRaw> = [
         component: ProjectList
     },
     {
-        path: '/kanban',
+        path: '/project/:id/kanban',
         name: 'ProjectKanban',
         component: ProjectKanban
     }

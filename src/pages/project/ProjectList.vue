@@ -1,6 +1,6 @@
 <template>
   <div id="project-list">
-    <div class="project-item" v-for="p in projectList" @click="toProjectKanban()">
+    <div class="project-item" v-for="p in projectList" @click="toProjectKanban(p.id)">
       <div class="icon"></div>
       <div class="name">{{ p.name }}</div>
     </div>
@@ -10,26 +10,25 @@
 <script setup lang="ts">
 import router from '@/router/index'
 import axios from '../../utils/http-utils'
-import {reactive, onMounted} from "vue"
+import {ref, onMounted} from "vue"
 
 interface Project {
+    id: number,
     icon?: string,
     name: string
 }
 
-const projectList = reactive<Project[]>([
-    {name: '前台项目'},
-    {name: '自研会议平台'},
-])
+let projectList = ref<Project[]>([])
 
 function loadProjectList() {
     axios.get('/projects').then(res => {
-        console.log(res)
+        projectList.value = res.data
     })
 }
 
-function toProjectKanban() {
-    router.push({name: 'ProjectKanban', query: {id: '1'}})
+function toProjectKanban(id: number) {
+    console.log(id)
+    router.push({path: `/project/${id}/kanban`})
 }
 
 onMounted(() => {
