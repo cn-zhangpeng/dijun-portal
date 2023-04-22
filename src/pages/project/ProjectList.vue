@@ -9,7 +9,7 @@
 
 <script setup lang="ts">
 import router from '@/router/index'
-import axios from '../../utils/http-utils'
+import axios from '@/utils/http-utils'
 import {ref, onMounted} from "vue"
 
 interface Project {
