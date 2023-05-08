@@ -42,7 +42,7 @@ function cancelTaskVue() {
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .add {
   height: 30px;
   background: #FFF;

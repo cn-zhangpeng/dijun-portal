@@ -35,7 +35,7 @@ onMounted(() => {
 })
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 #project-list {
   display: flex;
   flex-wrap: wrap;

@@ -42,7 +42,7 @@ onMounted(() => {
 })
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 #login {
   display: flex;
   width: 100vw;

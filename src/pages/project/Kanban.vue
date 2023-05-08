@@ -154,17 +154,17 @@ onMounted(() => {
 })
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 #project-kanban {
   min-height: 100vh;
   padding: 20px;
   background: #F7F7F7;
+  box-sizing: border-box;
   display: flex;
 }
 
 .kanban-item {
   width: 300px;
-  min-height: 100vh;
   box-sizing: border-box;
   padding: 12px;
   flex-shrink: 0;

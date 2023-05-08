@@ -6,7 +6,7 @@
   </div>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 .home {
   padding: 0 20px;
 

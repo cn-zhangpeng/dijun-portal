@@ -1,5 +1,6 @@
 import axios from 'axios'
 import router from "@/router";
+import { ElMessage } from 'element-plus';
 
 const service = axios.create({
     baseURL: import.meta.env.VITE_BASE_API, // api 的 base_url
@@ -24,9 +25,9 @@ service.interceptors.response.use(response => {
     return response
 }, error => {
     if (error.response.status === 500) {
-        console.log(error.response.data.msg)
+        const message = error.response.data.msg;
+        ElMessage.error(message);
     } else if (error.response.status === 401) {
-        console.log('go to login')
         router.push({path: '/login'});
     }
     return Promise.reject(error)
