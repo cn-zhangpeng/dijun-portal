@@ -7,7 +7,7 @@
       </div>
       <AddTaskCompo/>
       <div class="task">
-        <div class="task-item" v-for="t in k.taskList" @click="viewTaskDetail()">
+        <div class="task-item" v-for="t in k.taskList" @click="viewTaskDetail(k.id)">
           <span class="name">{{ t.name }}</span>
           <img alt="头像" src="https://tcs.teambition.net/thumbnail/111t8f70348037f544d170620cc0b9202e9c/w/200/h/200">
         </div>
@@ -15,7 +15,7 @@
     </div>
   </div>
 
-  <el-dialog class="task-detail" v-model="taskDialogVisible" :title="taskDetail.name" top="48px">
+  <el-dialog class="task-detail" width="1360" v-model="taskDialogVisible" :title="taskDetail.name" top="48px">
     <div class="task-content">
       <div class="left">
         <div class="info">
@@ -104,7 +104,7 @@ import axios from "@/utils/http-utils";
 
 const taskDialogVisible = ref<boolean>(false)
 
-interface TaskDetail {
+interface TaskList {
     name: string,
     executorId: string,
     status: boolean,
@@ -113,30 +113,43 @@ interface TaskDetail {
     priority: any,
     description: string
 }
+interface TaskDetail {
+  name: string,
+  executorId: string,
+  status: boolean,
+  startTime: string,
+  endTime: string,
+  priority: any,
+  description: string
+}
 enum TaskPriority {
     LOWER,
     ORDINARY,
     URGENT,
     VERY_URGENT
 }
+let taskList = ref<TaskList>()
 let taskDetail = ref<TaskDetail>({
-    name: '测试任务',
-    executorId: '1',
-    status: true,
-    startTime: '',
-    endTime: '',
-    priority: TaskPriority.ORDINARY,
-    description: ''
+  name: '',
+  executorId: '',
+  status: false,
+  startTime: '',
+  endTime: '',
+  priority: null,
+  description: ''
 })
 
 interface Kanban {
     id: number,
     name: string,
-    taskList: TaskDetail[]
+    taskList: TaskList[]
 }
 let kanbanList = ref<Kanban[]>([])
 
-function viewTaskDetail() {
+function viewTaskDetail(taskId: number) {
+  axios.get(`/projects/kanbans/${taskId}/tasks`).then(res => {
+    kanbanList.value = res.data
+  })
   taskDialogVisible.value = true
 }
 
@@ -146,7 +159,7 @@ onMounted(() => {
         kanbanList.value = res.data
 
         kanbanList.value.forEach(k => {
-            axios.get(`/kanbans/${k.id}/tasks`, {params: {page: 1, pageSize: 10}}).then(res => {
+            axios.get(`/projects/kanbans/${k.id}/tasks`, {params: {page: 1, pageSize: 10}}).then(res => {
                 k.taskList = res.data.data
             })
         })
@@ -203,7 +216,6 @@ onMounted(() => {
 }
 
 .task-detail {
-  width: 1360px;
   .el-dialog__body {
     padding: 0;
   }
