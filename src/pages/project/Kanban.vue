@@ -128,7 +128,6 @@ enum TaskPriority {
     URGENT,
     VERY_URGENT
 }
-let taskList = ref<TaskList>()
 let taskDetail = ref<TaskDetail>({
   name: '',
   executorId: '',
@@ -147,8 +146,8 @@ interface Kanban {
 let kanbanList = ref<Kanban[]>([])
 
 function viewTaskDetail(taskId: number) {
-  axios.get(`/projects/kanbans/${taskId}/tasks`).then(res => {
-    kanbanList.value = res.data
+  axios.get(`/projects/takes/${taskId}`).then(res => {
+    taskDetail.value = res.data
   })
   taskDialogVisible.value = true
 }
